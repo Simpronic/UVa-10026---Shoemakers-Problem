@@ -2,6 +2,7 @@
 // Possibili scelte, prendo o non prendo il lavoro...
 #include <iostream>
 #include <vector>
+#include <limits.h>
 using namespace std;
 struct lavoro{
     int i;
@@ -24,7 +25,7 @@ int main(int argc, const char * argv[]) {
     vector<int> current_choice;
     vector<bool> bitVector;
     vector<int> best_choice;
-    load_jobs(job);
+    fill_jobs(job);
     print_jobs(job);
     bitVector.resize(job.size());
     for(int i = 0; i<bitVector.size();i++){
@@ -32,7 +33,6 @@ int main(int argc, const char * argv[]) {
     }
     work_choice(job,choices,current_choice,bitVector);
     best_choice = minFineSequence(job,choices);
-    cout<<"La sequenza migliore e' "<<endl;
     printArray(best_choice);
     return 0;
 }
@@ -118,3 +118,4 @@ void printArray(vector<int> array){
     }
     cout<<endl;
 }
+
